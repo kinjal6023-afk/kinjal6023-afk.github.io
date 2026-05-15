@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kinjal J. Patil — Business / Data Analyst</title>
+<meta name="description" content="Kinjal J. Patil — MBA Business Analytics candidate. SQL, Python, Power BI, Tableau. Dashboards, forecasting, and data-driven insights." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --burgundy:#5a1a2b;
+    --burgundy-deep:#3f1320;
+    --blush:#e9c9c3;
+    --blush-soft:#f3dcd6;
+    --cream:#f5ede4;
+    --cream-deep:#ede2d4;
+    --ink:#2a1418;
+    --muted:#6e5a5e;
+    --line:#d8c4b8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .serif{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.01em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1180px;margin:0 auto;padding:0 32px}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,237,228,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1180px;margin:0 auto}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:.15em;font-weight:600;color:var(--burgundy)}
+  .nav-links{display:flex;gap:32px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--burgundy)}
+  .menu-btn{display:none;background:none;border:none;font-size:24px;color:var(--burgundy);cursor:pointer}
+
+  /* HERO */
+  .hero{padding:90px 0 60px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+  .hero-eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--burgundy);margin-bottom:24px}
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(48px,7vw,92px);
+    line-height:1.02;
+    font-weight:500;
+    color:var(--burgundy-deep);
+    margin-bottom:24px;
+  }
+  .hero h1 em{font-style:italic;color:var(--burgundy)}
+  .hero-sub{font-size:17px;color:var(--muted);max-width:480px;margin-bottom:36px}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;padding:14px 28px;font-size:12px;
+    letter-spacing:.2em;text-transform:uppercase;
+    transition:all .25s;cursor:pointer;border:none;font-family:inherit
+  }
+  .btn-primary{background:var(--burgundy);color:var(--cream)}
+  .btn-primary:hover{background:var(--burgundy-deep)}
+  .btn-ghost{background:transparent;color:var(--burgundy);border:1px solid var(--burgundy)}
+  .btn-ghost:hover{background:var(--burgundy);color:var(--cream)}
+
+  .hero-photo{
+    position:relative;aspect-ratio:4/5;
+    background:var(--blush);
+    overflow:hidden;
+  }
+  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:2}
+  .hero-photo-fallback{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--blush) 0%,var(--burgundy) 100%);
+    color:var(--cream);font-family:'Cormorant Garamond',serif;font-size:120px;z-index:1;
+  }
+  .hero-photo-tag{
+    z-index:3;
+    position:absolute;bottom:24px;left:24px;
+    background:var(--cream);padding:10px 18px;
+    font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--burgundy)
+  }
+
+  /* STATS */
+  .stats{background:var(--burgundy);color:var(--cream);padding:54px 0}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
+  .stat-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:500;line-height:1;margin-bottom:8px;color:var(--blush)}
+  .stat-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.85}
+
+  /* SECTIONS */
+  section{padding:100px 0}
+  .section-eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--burgundy);margin-bottom:18px}
+  .section-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(38px,5vw,64px);
+    line-height:1.05;font-weight:500;color:var(--burgundy-deep);
+    margin-bottom:24px;
+  }
+  .section-title em{font-style:italic;color:var(--burgundy)}
+  .section-lead{font-size:17px;color:var(--muted);max-width:620px;margin-bottom:56px}
+
+  /* ABOUT */
+  .about{background:var(--cream-deep)}
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+  .about-photo{aspect-ratio:1/1;background:var(--blush);overflow:hidden;position:relative}
+  .about-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+  .about-photo-fallback{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--blush-soft),var(--blush));
+    color:var(--burgundy);font-family:'Cormorant Garamond',serif;font-size:96px;z-index:1;
+  }
+  .about-body p{margin-bottom:18px;font-size:16px;color:var(--ink)}
+  .about-body p.lead{font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;color:var(--burgundy);line-height:1.4;margin-bottom:28px}
+  .signature{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;color:var(--burgundy);margin-top:24px}
+
+  /* EXPERIENCE */
+  .exp-list{display:flex;flex-direction:column;gap:0}
+  .exp-item{
+    display:grid;grid-template-columns:80px 1fr auto;gap:32px;
+    padding:32px 0;border-top:1px solid var(--line);align-items:start
+  }
+  .exp-item:last-child{border-bottom:1px solid var(--line)}
+  .exp-num{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--burgundy);font-style:italic}
+  .exp-role{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--burgundy-deep);margin-bottom:4px}
+  .exp-company{font-size:14px;color:var(--muted);margin-bottom:14px;font-style:italic}
+  .exp-bullets{list-style:none;padding:0}
+  .exp-bullets li{position:relative;padding-left:18px;font-size:15px;color:var(--ink);margin-bottom:6px}
+  .exp-bullets li::before{content:"—";position:absolute;left:0;color:var(--burgundy)}
+  .exp-date{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--burgundy);text-align:right;white-space:nowrap}
+
+  /* PROJECTS */
+  .projects{background:var(--blush-soft)}
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .proj-card{
+    background:var(--cream);padding:36px 32px;
+    transition:transform .3s,box-shadow .3s;
+    border:1px solid transparent;
+    display:flex;flex-direction:column
+  }
+  .proj-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(90,26,43,.12);border-color:var(--line)}
+  .proj-num{font-family:'Cormorant Garamond',serif;font-size:48px;color:var(--burgundy);font-style:italic;line-height:1;margin-bottom:16px}
+  .proj-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--burgundy-deep);margin-bottom:8px;line-height:1.2}
+  .proj-stack{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--burgundy);margin-bottom:18px}
+  .proj-desc{font-size:14px;color:var(--ink);flex:1;margin-bottom:18px}
+  .proj-year{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--muted)}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .skill-block h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--burgundy-deep);margin-bottom:20px}
+  .pill-group{display:flex;flex-wrap:wrap;gap:10px}
+  .pill{
+    padding:8px 16px;background:var(--cream-deep);
+    font-size:13px;color:var(--burgundy-deep);
+    border:1px solid var(--line);
+    border-radius:30px
+  }
+  .cert-list{list-style:none;padding:0;margin-top:8px}
+  .cert-list li{
+    padding:14px 0;border-bottom:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:baseline;gap:16px
+  }
+  .cert-list li:last-child{border-bottom:none}
+  .cert-name{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--burgundy-deep);font-weight:600}
+  .cert-issuer{font-size:13px;color:var(--muted);font-style:italic}
+
+  /* EDUCATION */
+  .education{background:var(--cream-deep)}
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .edu-card{background:var(--cream);padding:36px;border-left:3px solid var(--burgundy)}
+  .edu-degree{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--burgundy-deep);margin-bottom:6px;line-height:1.25}
+  .edu-school{font-size:15px;color:var(--ink);margin-bottom:10px}
+  .edu-date{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--burgundy)}
+
+  /* WRITING */
+  .writing{background:var(--burgundy-deep);color:var(--cream)}
+  .writing .section-eyebrow{color:var(--blush)}
+  .writing .section-title{color:var(--cream)}
+  .writing .section-title em{color:var(--blush)}
+  .writing .section-lead{color:rgba(245,237,228,.8)}
+  .writing-card{
+    background:rgba(245,237,228,.06);
+    border:1px solid rgba(233,201,195,.2);
+    padding:48px;text-align:center
+  }
+  .writing-card h3{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--cream);margin-bottom:12px}
+  .writing-card p{color:rgba(245,237,228,.75);margin-bottom:24px}
+
+  /* CONTACT */
+  .contact{text-align:center;background:var(--cream)}
+  .contact .section-lead{margin-left:auto;margin-right:auto}
+  .contact-grid{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:48px}
+  .contact-item{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .contact-label{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--burgundy)}
+  .contact-value{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--burgundy-deep)}
+  .contact-value a:hover{color:var(--burgundy)}
+
+  /* FOOTER */
+  footer{background:var(--burgundy-deep);color:rgba(245,237,228,.7);padding:40px 0;text-align:center;font-size:13px;letter-spacing:.1em}
+  footer a{color:var(--blush)}
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .hero{padding:50px 0 40px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero h1{font-size:clamp(42px,9vw,64px)}
+    .stats-grid{grid-template-columns:repeat(2,1fr);gap:36px}
+    .about-grid{grid-template-columns:1fr;gap:36px}
+    .proj-grid{grid-template-columns:1fr;gap:24px}
+    .skills-grid{grid-template-columns:1fr;gap:32px}
+    .edu-grid{grid-template-columns:1fr}
+    .exp-item{grid-template-columns:1fr;gap:8px}
+    .exp-date{text-align:left}
+    .exp-num{display:none}
+    section{padding:70px 0}
+    .nav-links{display:none}
+    .menu-btn{display:block}
+    .nav-links.open{
+      display:flex;flex-direction:column;gap:18px;
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--cream);padding:24px 32px;
+      border-bottom:1px solid var(--line)
+    }
+    .contact-grid{gap:28px}
+  }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     NAV BAR — top of every page. Change "KINJAL J. PATIL" if you want a different name displayed.
+     ========================================================= -->
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="logo">KINJAL J. PATIL</a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- =========================================================
+     HERO SECTION — big headline at the top.
+     To edit: change "Business · Data Analyst" (your title), the big headline, and the description below it.
+     Hero photo file: hero.jpg (must be in this same folder)
+     ========================================================= -->
+<header class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-eyebrow">Business · Data Analyst</div>
+      <h1>Turning data into <em>decisions</em> that move the business forward.</h1>
+      <p class="hero-sub">MBA Business Analytics (STEM) candidate building dashboards, forecasting models, and KPI systems with SQL, Python, Power BI, and Tableau.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-photo-fallback">K</div>
+      <img src="hero.jpg?v=2" alt="Kinjal J. Patil" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" />
+      <div class="hero-photo-tag">Jersey City · NY</div>
+    </div>
+  </div>
+</header>
+
+<!-- =========================================================
+     STATS BAR — burgundy band with 4 numbers.
+     "8K+" comes from your NYISO project (8,000+ hourly electricity records).
+     "3+" is your three projects on the resume. "3" is your three certifications.
+     To change any stat: edit the big number (stat-num) and the small caption (stat-label).
+     ========================================================= -->
+<section class="stats">
+  <div class="container stats-grid">
+    <div>
+      <div class="stat-num">MBA</div>
+      <div class="stat-label">Business Analytics<br/>STEM · 2026</div>
+    </div>
+    <div>
+      <div class="stat-num">8K+</div>
+      <div class="stat-label">Records<br/>Analyzed</div>
+    </div>
+    <div>
+      <div class="stat-num">3+</div>
+      <div class="stat-label">Major<br/>Projects</div>
+    </div>
+    <div>
+      <div class="stat-num">3</div>
+      <div class="stat-label">Professional<br/>Certifications</div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     ABOUT SECTION — your bio with headshot on the left.
+     To edit your bio: change the <p> tags below. Keep them between <p> and </p>.
+     Headshot photo file: headshot.jpg (must be in this same folder)
+     ========================================================= -->
+<section id="about" class="about">
+  <div class="container about-grid">
+    <div class="about-photo">
+      <div class="about-photo-fallback">K</div>
+      <img src="headshot.jpg?v=2" alt="Kinjal headshot" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" />
+    </div>
+    <div class="about-body">
+      <div class="section-eyebrow">About Me</div>
+      <h2 class="section-title">Hi, I'm <em>Kinjal</em>.</h2>
+      <p class="lead">I help organizations see clearly — through dashboards, models, and the right questions asked of the right data.</p>
+      <p>I'm an MBA Business Analytics (STEM) candidate at Saint Peter's University with hands-on experience across business intelligence, financial analysis, and predictive analytics. My background bridges finance, operations, and modern data tooling.</p>
+      <p>At Pafco Jewelry, I'm currently designing Power BI dashboards that track operational KPIs across production workflows. Before that, I worked across consultancy, education advisory, and finance — wherever messy data needed structure and insight.</p>
+      <p>I'm fluent in SQL and Python, comfortable in DAX, and I genuinely enjoy the part of the work where a number finally explains a behavior.</p>
+      <div class="signature">— Kinjal</div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     EXPERIENCE SECTION — your work history.
+     Each .exp-item is one job. To add a new job: copy an entire .exp-item block and paste it.
+     To edit: change role, company, bullet points, and date.
+     ========================================================= -->
+<section id="experience">
+  <div class="container">
+    <div class="section-eyebrow">Experience</div>
+    <h2 class="section-title">Where I've <em>worked</em>.</h2>
+    <p class="section-lead">A timeline of analyst and advisory roles spanning operations, finance, compliance, and business intelligence.</p>
+
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-num">01</div>
+        <div>
+          <div class="exp-role">Business Analyst Intern</div>
+          <div class="exp-company">Pafco Jewelry Inc. · New York, NY</div>
+          <ul class="exp-bullets">
+            <li>Designed and deployed Power BI dashboards tracking 3+ operational KPIs across production workflows.</li>
+            <li>Improved order turnaround and reporting accuracy by optimizing KPI-driven performance analysis across cross-functional teams.</li>
+          </ul>
+        </div>
+        <div class="exp-date">May 2025 – Present</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-num">02</div>
+        <div>
+          <div class="exp-role">Business Process Intern</div>
+          <div class="exp-company">Vinayak Consultancy · India</div>
+          <ul class="exp-bullets">
+            <li>Standardized documentation for 30+ government incentive cases.</li>
+            <li>Increased approval accuracy by 20% by implementing structured compliance workflows.</li>
+          </ul>
+        </div>
+        <div class="exp-date">Mar 2024 – Jul 2024</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-num">03</div>
+        <div>
+          <div class="exp-role">Advisory Analyst</div>
+          <div class="exp-company">Destiny Foreign Education · India</div>
+          <ul class="exp-bullets">
+            <li>Developed Excel-based eligibility models for student profiling.</li>
+            <li>Streamlined documentation workflows to reduce processing time.</li>
+          </ul>
+        </div>
+        <div class="exp-date">May 2023 – Dec 2023</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-num">04</div>
+        <div>
+          <div class="exp-role">Finance &amp; Taxation Intern</div>
+          <div class="exp-company">H.K. Pant Group · India</div>
+          <ul class="exp-bullets">
+            <li>Performed reconciliations and variance checks for audit preparation.</li>
+            <li>Improved documentation quality to reduce recurring reporting errors.</li>
+          </ul>
+        </div>
+        <div class="exp-date">Feb 2023 – Apr 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PROJECTS SECTION — three featured projects in pink cards.
+     To add a project: copy a .proj-card block and paste it, then edit number, title, stack, description, and year.
+     ========================================================= -->
+<section id="projects" class="projects">
+  <div class="container">
+    <div class="section-eyebrow">Selected Work</div>
+    <h2 class="section-title">Projects I'm <em>proud</em> of.</h2>
+    <p class="section-lead">Forecasting models, fraud detection systems, and financial dashboards — each built end-to-end from raw data to executive-ready insight.</p>
+
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-num">01</div>
+        <h3 class="proj-title">Electricity Demand Response &amp; Load Forecasting</h3>
+        <div class="proj-stack">SQL · Python · ARIMA · NYISO</div>
+        <p class="proj-desc">Analyzed 8,000+ hourly electricity demand records to identify peak-load trends. Modeled a 5% peak-demand reduction scenario and built an ARIMA model for 24-hour predictive demand planning.</p>
+        <div class="proj-year">2026</div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-num">02</div>
+        <h3 class="proj-title">Credit Card Fraud Detection</h3>
+        <div class="proj-stack">Python · Scikit-learn</div>
+        <p class="proj-desc">Built and evaluated Logistic Regression and Random Forest classifiers on imbalanced transaction data, optimizing precision, recall, and an F1-score of 0.83 to balance fraud capture against false positives.</p>
+        <div class="proj-year">2025</div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-num">03</div>
+        <h3 class="proj-title">Apple Financial Performance Dashboard</h3>
+        <div class="proj-stack">Power BI · DAX · Excel</div>
+        <p class="proj-desc">Designed an interactive dashboard with KPI cards and financial ratio analysis. Built DAX measures (Current Ratio, Debt-to-Equity) to surface performance insights for executive review.</p>
+        <div class="proj-year">2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SKILLS & CERTIFICATIONS SECTION
+     Skill pills: each <span class="pill">SQL</span> is one tag. Add or remove freely.
+     Certifications: each <li> is one cert. Cert-name + cert-issuer.
+     ========================================================= -->
+<section id="skills">
+  <div class="container">
+    <div class="section-eyebrow">Toolkit</div>
+    <h2 class="section-title">Skills &amp; <em>Certifications</em></h2>
+    <p class="section-lead">The stack I reach for, plus the credentials behind the work.</p>
+
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h3>Programming &amp; Querying</h3>
+        <div class="pill-group">
+          <span class="pill">SQL</span>
+          <span class="pill">Python</span>
+          <span class="pill">DAX</span>
+        </div>
+        <h3 style="margin-top:32px">Visualization</h3>
+        <div class="pill-group">
+          <span class="pill">Power BI</span>
+          <span class="pill">Tableau</span>
+          <span class="pill">Advanced Excel</span>
+        </div>
+        <h3 style="margin-top:32px">Analytics</h3>
+        <div class="pill-group">
+          <span class="pill">Data Cleaning</span>
+          <span class="pill">EDA</span>
+          <span class="pill">KPI Development</span>
+          <span class="pill">Data Modeling</span>
+          <span class="pill">Forecasting</span>
+          <span class="pill">Variance Analysis</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <h3>Certifications</h3>
+        <ul class="cert-list">
+          <li>
+            <div>
+              <div class="cert-name">Google Data Analytics Professional Certificate</div>
+              <div class="cert-issuer">Google · 2026</div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="cert-name">Financial Markets</div>
+              <div class="cert-issuer">Yale University · 2025</div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="cert-name">Enterprise Design Thinking Co-Creator</div>
+              <div class="cert-issuer">IBM · 2025</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     EDUCATION SECTION — degree cards.
+     Each .edu-card is one degree. Copy a block to add another.
+     ========================================================= -->
+<section id="education" class="education">
+  <div class="container">
+    <div class="section-eyebrow">Education</div>
+    <h2 class="section-title">Where I <em>studied</em>.</h2>
+
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree">Master of Business Administration<br/>Business Analytics (STEM)</div>
+        <div class="edu-school">Saint Peter's University · Jersey City, NJ</div>
+        <div class="edu-date">Expected May 2026</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Bachelor of Commerce<br/>Banking &amp; Finance</div>
+        <div class="edu-school">Savitribai Phule Pune University · India</div>
+        <div class="edu-date">2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     WRITING / BLOG PLACEHOLDER — dark burgundy panel.
+     Once you have a real blog post, replace the .writing-card content with a link.
+     ========================================================= -->
+<section id="writing" class="writing">
+  <div class="container">
+    <div class="section-eyebrow">Journal</div>
+    <h2 class="section-title">Notes &amp; <em>writing</em>.</h2>
+    <p class="section-lead">A space for upcoming case studies, data deep-dives, and reflections on analytics in business.</p>
+
+    <div class="writing-card">
+      <h3>Coming Soon</h3>
+      <p>First post in progress — a walkthrough of the NYISO forecasting project, from raw demand data to a 24-hour ARIMA prediction.</p>
+      <a href="#contact" class="btn btn-ghost" style="border-color:var(--blush);color:var(--blush)">Get notified</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CONTACT SECTION — email, phone, LinkedIn, GitHub + Download Resume button.
+     Edit the email/phone/links below. Resume button uses resume.pdf in this folder.
+     ========================================================= -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-eyebrow">Get In Touch</div>
+    <h2 class="section-title">Let's <em>talk</em>.</h2>
+    <p class="section-lead">Open to full-time analyst roles, project collaborations, and a good conversation about data.</p>
+
+    <div class="contact-grid">
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <span class="contact-value"><a href="mailto:kinjal6023@gmail.com">kinjal6023@gmail.com</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Phone</span>
+        <span class="contact-value"><a href="tel:+15513925837">+1 551-392-5837</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-value"><a href="https://linkedin.com/in/kinjal-patil-1369a9343" target="_blank" rel="noopener">kinjal-patil</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">GitHub</span>
+        <span class="contact-value"><a href="https://github.com/kinjal6023-afk" target="_blank" rel="noopener">kinjal6023-afk</a></span>
+      </div>
+    </div>
+
+    <a href="resume.pdf" class="btn btn-primary" download>Download Resume</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Kinjal J. Patil · Designed with care · <a href="mailto:kinjal6023@gmail.com">kinjal6023@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  // Close mobile nav on link click
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'));
+  });
+</script>
+
+</body>
+</
